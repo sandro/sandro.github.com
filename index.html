@@ -241,8 +241,8 @@
     text-transform: uppercase; letter-spacing: 0.5px;
   }
   .project .stars { color: #7A2040; font-weight: 600; }
-  .project .demo-link { color: #6AA5B9; text-decoration: none; font-weight: 600; }
-  .project .demo-link:hover { color: #7A2040; }
+  .project .site-link { color: #6AA5B9; text-decoration: none; font-weight: 600; }
+  .project .site-link:hover { color: #7A2040; }
 
   footer { padding: 0 0 48px; }
   .footer-bar { display: flex; height: 4px; margin-bottom: 16px; }
@@ -296,7 +296,7 @@
         <div class="meta">
           <span class="lang-dot lang-html"></span>
           <span class="lang-label">HTML</span>
-          <span class="demo-link" data-href="https://sandro.github.io/coup/">demo →</span>
+          <span class="site-link" data-href="https://sandro.github.io/coup/">site →</span>
         </div>
       </div>
     </a>
@@ -308,7 +308,7 @@
         <div class="meta">
           <span class="lang-dot lang-css"></span>
           <span class="lang-label">CSS</span>
-          <span class="demo-link" data-href="https://sandro.github.io/grit.css/">demo →</span>
+          <span class="site-link" data-href="https://sandro.github.io/grit.css/">site →</span>
         </div>
       </div>
     </a>
@@ -386,7 +386,7 @@
   </footer>
 </div>
 <script>
-document.querySelectorAll('.demo-link[data-href]').forEach(el => {
+document.querySelectorAll('.site-link[data-href]').forEach(el => {
   el.addEventListener('click', e => {
     e.preventDefault();
     e.stopPropagation();
