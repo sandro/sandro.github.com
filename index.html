@@ -1,57 +1,398 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
-  <head>
-    <meta content='text/html;charset=UTF-8' http-equiv='content-type' />
-    <meta name='author' content='sandro turriate' />
-    <meta content="Ruby on Rails web developer that can't stop coding" name='description' />
-    <title>Sandro Turriate - can't stop the rot</title>
-    <link href='/css/blueprint/screen.css' media='screen, projection' rel='stylesheet' type='text/css' />
-    <link href='/css/blueprint/print.css' media='print' rel='stylesheet' type='text/css' />
-    <!--[if IE]> 
-      <link href='/css/blueprint/ie.css' media='screen, projection' rel='stylesheet' type='text/css' />
-    <![endif]-->
-    <link href='/css/coderay.css' rel='stylesheet' type='text/css' />
-    <link href='/css/application.css' media='screen, projection' rel='stylesheet' type='text/css' />
-  </head>
-  <body>
-    <div class='container'>
-      <div class='span-24' id='header'>
-        <div class='span-11'>
-          <h1>
-            <a href='http://turriate.com'>
-              Sandro Turriate
-              <small>can't stop the rot</small>
-            </a>
-          </h1>
-        </div>
-        <div class='span-12 prepend-1 last'>
-          <ul>
-            <li class='blog span-3'>
-              <a href='#'>&nbsp;</a>
-            </li>
-            <li class='links span-3'>
-              <a href='#'>&nbsp;</a>
-            </li>
-            <li class='work span-3'>
-              <a href='#'>&nbsp;</a>
-            </li>
-            <li class='about span-3 last'>
-              <a href='#about'>&nbsp;</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class='span-24' id='footer'>
-        <p>
-          &nbsp;
-        </p>
-      </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Sandro Turriate">
+<meta name="description" content="Sandro Turriate — open source projects and tools for the web and beyond.">
+<title>Sandro Turriate — can't stop the rot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Russo+One&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #222333;
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .page { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+  header {
+    padding: 10px 0 20px;
+    border-bottom: 4px solid #7A2040;
+    margin-bottom: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  header h1 {
+    font-family: 'Russo One', sans-serif;
+    font-size: 36px; font-weight: 400;
+    text-transform: uppercase; letter-spacing: -0.5px; line-height: 1;
+  }
+  header h1 a { color: #1D2326; text-decoration: none; }
+  header .sub {
+    font-family: 'Architects Daughter', 'Amatic SC', serif;
+    color: #7A2040; font-size: 17px;
+  }
+  header nav { display: flex; gap: 6px; margin-bottom: 4px; }
+  header nav a {
+    display: block; width: 32px; height: 32px;
+    text-decoration: none; transition: transform 0.15s;
+  }
+  header nav a:hover { transform: scale(1.12); }
+
+  .intro { margin-bottom: 36px; font-size: 15px; color: #555; }
+  .intro a { color: #7A2040; text-decoration: none; font-weight: 600; }
+  .intro a:hover { text-decoration: underline; }
+
+  .section-label {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 3px;
+    font-weight: 700; margin-bottom: 20px; padding: 6px 12px;
+    display: inline-block; background: #7A2040; color: #fff;
+  }
+
+  .projects { margin-bottom: 48px; }
+
+  .project {
+    display: flex; gap: 16px; align-items: baseline;
+    padding: 16px 16px;
+    border-bottom: 1px solid #e8e5e0;
+    position: relative; overflow: hidden;
+    text-decoration: none; color: inherit;
+    cursor: pointer;
+  }
+  .project:last-child { border-bottom: none; }
+
+  .project::before, .project::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    transition: opacity 0.3s ease;
+  }
+  .project::before {
+    background-image: linear-gradient(
+      135deg,
+      transparent 0px,     transparent 9px,
+      rgba(170,168,166,0.15) 9px,  rgba(170,168,166,0.15) 10px,
+      transparent 10px,    transparent 19px,
+      rgba(170,168,166,0.2) 19px,  rgba(170,168,166,0.2) 20px,
+      transparent 20px,    transparent 29px,
+      rgba(170,168,166,0.25) 29px, rgba(170,168,166,0.25) 30px,
+      transparent 30px,    transparent 39px,
+      rgba(170,168,166,0.3) 39px,  rgba(170,168,166,0.3) 40px,
+      transparent 40px,    transparent 49px,
+      rgba(170,168,166,0.32) 49px, rgba(170,168,166,0.32) 50px,
+      transparent 50px,    transparent 59px,
+      rgba(170,168,166,0.3) 59px,  rgba(170,168,166,0.3) 60px,
+      transparent 60px,    transparent 69px,
+      rgba(170,168,166,0.25) 69px, rgba(170,168,166,0.25) 70px,
+      transparent 70px,    transparent 79px,
+      rgba(170,168,166,0.2) 79px,  rgba(170,168,166,0.2) 80px,
+      transparent 80px,    transparent 89px,
+      rgba(170,168,166,0.15) 89px, rgba(170,168,166,0.15) 90px,
+      transparent 90px,    transparent 99px,
+      rgba(170,168,166,0.1) 99px,  rgba(170,168,166,0.1) 100px,
+      transparent 100px,   transparent 109px,
+      rgba(170,168,166,0.06) 109px,rgba(170,168,166,0.06) 110px,
+      transparent 110px,   transparent 119px,
+      rgba(170,168,166,0.03) 119px,rgba(170,168,166,0.03) 120px,
+      transparent 120px,   transparent 129px,
+      rgba(170,168,166,0.015) 129px,rgba(170,168,166,0.015) 130px,
+      transparent 130px,   transparent 139px,
+      rgba(170,168,166,0.005) 139px,rgba(170,168,166,0.005) 140px,
+      transparent 140px
+    );
+  }
+  .project::after {
+    opacity: 0;
+    background-image: linear-gradient(
+      135deg,
+      transparent 0px,     transparent 9px,
+      var(--c1) 9px,       var(--c1) 10px,
+      transparent 10px,    transparent 19px,
+      var(--c2) 19px,      var(--c2) 20px,
+      transparent 20px,    transparent 29px,
+      var(--c3) 29px,      var(--c3) 30px,
+      transparent 30px,    transparent 39px,
+      var(--c4) 39px,      var(--c4) 40px,
+      transparent 40px,    transparent 49px,
+      var(--c5) 49px,      var(--c5) 50px,
+      transparent 50px,    transparent 59px,
+      var(--c6) 59px,      var(--c6) 60px,
+      transparent 60px,    transparent 69px,
+      var(--c7) 69px,      var(--c7) 70px,
+      transparent 70px,    transparent 79px,
+      var(--c8) 79px,      var(--c8) 80px,
+      transparent 80px,    transparent 89px,
+      var(--c9) 89px,      var(--c9) 90px,
+      transparent 90px,    transparent 99px,
+      var(--c10) 99px,     var(--c10) 100px,
+      transparent 100px,   transparent 109px,
+      var(--c11) 109px,    var(--c11) 110px,
+      transparent 110px,   transparent 119px,
+      var(--c12) 119px,    var(--c12) 120px,
+      transparent 120px,   transparent 129px,
+      var(--c13) 129px,    var(--c13) 130px,
+      transparent 130px,   transparent 139px,
+      var(--c14) 139px,    var(--c14) 140px,
+      transparent 140px
+    );
+  }
+  .project:hover::before { opacity: 0; }
+  .project:hover::after { opacity: 1; }
+
+  .stripe-wine {
+    --c1:  rgba(122, 32, 64, 0.2);
+    --c2:  rgba(122, 32, 64, 0.26);
+    --c3:  rgba(122, 32, 64, 0.32);
+    --c4:  rgba(122, 32, 64, 0.37);
+    --c5:  rgba(122, 32, 64, 0.4);
+    --c6:  rgba(122, 32, 64, 0.37);
+    --c7:  rgba(122, 32, 64, 0.32);
+    --c8:  rgba(122, 32, 64, 0.26);
+    --c9:  rgba(122, 32, 64, 0.2);
+    --c10: rgba(122, 32, 64, 0.13);
+    --c11: rgba(122, 32, 64, 0.08);
+    --c12: rgba(122, 32, 64, 0.04);
+    --c13: rgba(122, 32, 64, 0.02);
+    --c14: rgba(122, 32, 64, 0.008);
+  }
+  .stripe-blue {
+    --c1:  rgba(106, 165, 185, 0.2);
+    --c2:  rgba(106, 165, 185, 0.26);
+    --c3:  rgba(106, 165, 185, 0.32);
+    --c4:  rgba(106, 165, 185, 0.37);
+    --c5:  rgba(106, 165, 185, 0.4);
+    --c6:  rgba(106, 165, 185, 0.37);
+    --c7:  rgba(106, 165, 185, 0.32);
+    --c8:  rgba(106, 165, 185, 0.26);
+    --c9:  rgba(106, 165, 185, 0.2);
+    --c10: rgba(106, 165, 185, 0.13);
+    --c11: rgba(106, 165, 185, 0.08);
+    --c12: rgba(106, 165, 185, 0.04);
+    --c13: rgba(106, 165, 185, 0.02);
+    --c14: rgba(106, 165, 185, 0.008);
+  }
+  .stripe-gold {
+    --c1:  rgba(185, 150, 48, 0.2);
+    --c2:  rgba(185, 150, 48, 0.26);
+    --c3:  rgba(185, 150, 48, 0.32);
+    --c4:  rgba(185, 150, 48, 0.37);
+    --c5:  rgba(185, 150, 48, 0.4);
+    --c6:  rgba(185, 150, 48, 0.37);
+    --c7:  rgba(185, 150, 48, 0.32);
+    --c8:  rgba(185, 150, 48, 0.26);
+    --c9:  rgba(185, 150, 48, 0.2);
+    --c10: rgba(185, 150, 48, 0.13);
+    --c11: rgba(185, 150, 48, 0.08);
+    --c12: rgba(185, 150, 48, 0.04);
+    --c13: rgba(185, 150, 48, 0.02);
+    --c14: rgba(185, 150, 48, 0.008);
+  }
+  .stripe-forest {
+    --c1:  rgba(62, 120, 72, 0.2);
+    --c2:  rgba(62, 120, 72, 0.26);
+    --c3:  rgba(62, 120, 72, 0.32);
+    --c4:  rgba(62, 120, 72, 0.37);
+    --c5:  rgba(62, 120, 72, 0.4);
+    --c6:  rgba(62, 120, 72, 0.37);
+    --c7:  rgba(62, 120, 72, 0.32);
+    --c8:  rgba(62, 120, 72, 0.26);
+    --c9:  rgba(62, 120, 72, 0.2);
+    --c10: rgba(62, 120, 72, 0.13);
+    --c11: rgba(62, 120, 72, 0.08);
+    --c12: rgba(62, 120, 72, 0.04);
+    --c13: rgba(62, 120, 72, 0.02);
+    --c14: rgba(62, 120, 72, 0.008);
+  }
+
+  .project .name {
+    flex-shrink: 0; min-width: 160px; position: relative;
+    transition: transform 0.25s ease;
+    transform-origin: left center;
+  }
+  .project:hover .name {
+    transform: scale(1.08);
+  }
+  .project .name span {
+    color: #1D2326; font-weight: 700;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 15px;
+  }
+  .project:hover .name span { color: #7A2040; }
+
+  .project .details { flex: 1; position: relative; }
+  .project .desc { color: #555; font-size: 13px; line-height: 1.5; }
+  .project .meta {
+    display: flex; gap: 12px; margin-top: 4px;
+    font-size: 11px; align-items: center;
+  }
+  .project .lang-dot {
+    width: 8px; height: 8px; border-radius: 50%; display: inline-block;
+  }
+  .project .lang-label {
+    color: #7A7462; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .project .stars { color: #7A2040; font-weight: 600; }
+  .project .demo-link { color: #6AA5B9; text-decoration: none; font-weight: 600; }
+  .project .demo-link:hover { color: #7A2040; }
+
+  footer { padding: 0 0 48px; }
+  .footer-bar { display: flex; height: 4px; margin-bottom: 16px; }
+  .footer-bar span { flex: 1; }
+  .cs1 { background: #7A2040; }
+  .cs2 { background: #6AA5B9; }
+  .cs3 { background: #B99630; }
+  .cs4 { background: #3E7848; }
+  .footer-content {
+    display: flex; justify-content: space-between;
+    font-size: 13px; color: #958976;
+  }
+  footer a { color: #7A2040; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  .lang-html { background: #e34c26; }
+  .lang-css { background: #3E7848; }
+  .lang-swift { background: #F05138; }
+  .lang-go { background: #00ADD8; }
+  .lang-ruby { background: #CC342D; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div>
+      <h1><a href="https://turriate.com">Sandro Turriate</a></h1>
+      <div class="sub">can't stop the rot</div>
     </div>
-  </body>
-  <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-  </script>
-  <script type="text/javascript">
-  _uacct = "UA-147954-7";
-  urchinTracker();
-  </script>
+    <nav>
+      <a href="#" style="background:#7A2040" title="blog"></a>
+      <a href="#" style="background:#6AA5B9" title="github"></a>
+      <a href="#" style="background:#B99630" title="projects"></a>
+      <a href="#" style="background:#3E7848" title="about"></a>
+    </nav>
+  </header>
+
+  <div class="intro">
+    I build tools for the web and beyond.
+    Find me at <a href="https://turriate.com">turriate.com</a>
+    and <a href="https://github.com/sandro">github.com/sandro</a>.
+  </div>
+
+  <span class="section-label" id="projects">Projects</span>
+
+  <div class="projects">
+    <a class="project stripe-wine" href="https://github.com/sandro/coup">
+      <div class="name"><span>coup</span></div>
+      <div class="details">
+        <div class="desc">A coup against the render loop. Zero-build web components.</div>
+        <div class="meta">
+          <span class="lang-dot lang-html"></span>
+          <span class="lang-label">HTML</span>
+          <span class="demo-link" data-href="https://sandro.github.io/coup/">demo →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="project stripe-blue" href="https://github.com/sandro/grit.css">
+      <div class="name"><span>grit.css</span></div>
+      <div class="details">
+        <div class="desc">One CSS file. Zero JavaScript. Beautiful defaults and 30+ components in 8KB.</div>
+        <div class="meta">
+          <span class="lang-dot lang-css"></span>
+          <span class="lang-label">CSS</span>
+          <span class="demo-link" data-href="https://sandro.github.io/grit.css/">demo →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="project stripe-gold" href="https://github.com/sandro/recall">
+      <div class="name"><span>recall</span></div>
+      <div class="details">
+        <div class="desc">Clipboard manager / yank ring for Mac.</div>
+        <div class="meta">
+          <span class="lang-dot lang-swift"></span>
+          <span class="lang-label">Swift</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="project stripe-forest" href="https://github.com/sandro/imigrate">
+      <div class="name"><span>imigrate</span></div>
+      <div class="details">
+        <div class="desc">Interface-driven database migrations in Go.</div>
+        <div class="meta">
+          <span class="lang-dot lang-go"></span>
+          <span class="lang-label">Go</span>
+          <span class="stars">★ 2</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="project stripe-wine" href="https://github.com/sandro/goal">
+      <div class="name"><span>goal</span></div>
+      <div class="details">
+        <div class="desc">Simple web analytics.</div>
+        <div class="meta">
+          <span class="lang-dot lang-go"></span>
+          <span class="lang-label">Go</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="project stripe-blue" href="https://github.com/sandro/specjour">
+      <div class="name"><span>specjour</span></div>
+      <div class="details">
+        <div class="desc">Distributed rspec & cucumber via Bonjour.</div>
+        <div class="meta">
+          <span class="lang-dot lang-ruby"></span>
+          <span class="lang-label">Ruby</span>
+          <span class="stars">★ 211</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="project stripe-gold" href="https://github.com/sandro/ephemeral_response">
+      <div class="name"><span>ephemeral_response</span></div>
+      <div class="details">
+        <div class="desc">Automatic recording, replaying, and expiry of web responses.</div>
+        <div class="meta">
+          <span class="lang-dot lang-ruby"></span>
+          <span class="lang-label">Ruby</span>
+          <span class="stars">★ 95</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <footer>
+    <div class="footer-bar">
+      <span class="cs1"></span>
+      <span class="cs2"></span>
+      <span class="cs3"></span>
+      <span class="cs4"></span>
+    </div>
+    <div class="footer-content">
+      <span>© Sandro Turriate</span>
+      <a href="https://turriate.com">turriate.com</a>
+    </div>
+  </footer>
+</div>
+<script>
+document.querySelectorAll('.demo-link[data-href]').forEach(el => {
+  el.addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    window.open(el.dataset.href, '_blank');
+  });
+});
+</script>
+</body>
 </html>
