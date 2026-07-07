@@ -62,7 +62,7 @@
     padding: 16px 16px;
     border-bottom: 1px solid #e8e5e0;
     position: relative; overflow: hidden;
-    text-decoration: none; color: inherit;
+    color: inherit;
     cursor: pointer;
   }
   .project:last-child { border-bottom: none; }
@@ -220,12 +220,12 @@
   .project:hover .name {
     transform: scale(1.08);
   }
-  .project .name span {
-    color: #1D2326; font-weight: 700;
+  .project .name a {
+    color: #1D2326; text-decoration: none; font-weight: 700;
     font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-    font-size: 15px;
+    font-size: 15px; position: relative; z-index: 1;
   }
-  .project:hover .name span { color: #7A2040; }
+  .project:hover .name a { color: #7A2040; }
 
   .project .details { flex: 1; position: relative; }
   .project .desc { color: #555; font-size: 13px; line-height: 1.5; }
@@ -241,7 +241,7 @@
     text-transform: uppercase; letter-spacing: 0.5px;
   }
   .project .stars { color: #7A2040; font-weight: 600; }
-  .project .site-link { color: #6AA5B9; text-decoration: none; font-weight: 600; }
+  .project .site-link { color: #6AA5B9; text-decoration: none; font-weight: 600; position: relative; z-index: 1; }
   .project .site-link:hover { color: #7A2040; }
 
   footer { padding: 0 0 48px; }
@@ -289,32 +289,32 @@
   <span class="section-label" id="projects">Projects</span>
 
   <div class="projects">
-    <a class="project stripe-wine" href="https://github.com/sandro/coup">
-      <div class="name"><span>coup</span></div>
+    <div class="project stripe-wine" data-href="https://github.com/sandro/coup">
+      <div class="name"><a href="https://github.com/sandro/coup">coup</a></div>
       <div class="details">
         <div class="desc">A coup against the render loop. Zero-build web components.</div>
         <div class="meta">
           <span class="lang-dot lang-html"></span>
           <span class="lang-label">HTML</span>
-          <span class="site-link" data-href="https://sandro.github.io/coup/">site →</span>
+          <a class="site-link" href="https://sandro.github.io/coup/">site →</a>
         </div>
       </div>
-    </a>
+    </div>
 
-    <a class="project stripe-blue" href="https://github.com/sandro/grit.css">
-      <div class="name"><span>grit.css</span></div>
+    <div class="project stripe-blue" data-href="https://github.com/sandro/grit.css">
+      <div class="name"><a href="https://github.com/sandro/grit.css">grit.css</a></div>
       <div class="details">
         <div class="desc">One CSS file. Zero JavaScript. Beautiful defaults and 30+ components in 8KB.</div>
         <div class="meta">
           <span class="lang-dot lang-css"></span>
           <span class="lang-label">CSS</span>
-          <span class="site-link" data-href="https://sandro.github.io/grit.css/">site →</span>
+          <a class="site-link" href="https://sandro.github.io/grit.css/">site →</a>
         </div>
       </div>
-    </a>
+    </div>
 
-    <a class="project stripe-gold" href="https://github.com/sandro/recall">
-      <div class="name"><span>recall</span></div>
+    <div class="project stripe-gold" data-href="https://github.com/sandro/recall">
+      <div class="name"><a href="https://github.com/sandro/recall">recall</a></div>
       <div class="details">
         <div class="desc">Clipboard manager / yank ring for Mac.</div>
         <div class="meta">
@@ -322,10 +322,10 @@
           <span class="lang-label">Swift</span>
         </div>
       </div>
-    </a>
+    </div>
 
-    <a class="project stripe-forest" href="https://github.com/sandro/imigrate">
-      <div class="name"><span>imigrate</span></div>
+    <div class="project stripe-forest" data-href="https://github.com/sandro/imigrate">
+      <div class="name"><a href="https://github.com/sandro/imigrate">imigrate</a></div>
       <div class="details">
         <div class="desc">Interface-driven database migrations in Go.</div>
         <div class="meta">
@@ -334,10 +334,10 @@
           <span class="stars">★ 2</span>
         </div>
       </div>
-    </a>
+    </div>
 
-    <a class="project stripe-wine" href="https://github.com/sandro/goal">
-      <div class="name"><span>goal</span></div>
+    <div class="project stripe-wine" data-href="https://github.com/sandro/goal">
+      <div class="name"><a href="https://github.com/sandro/goal">goal</a></div>
       <div class="details">
         <div class="desc">Simple web analytics.</div>
         <div class="meta">
@@ -345,10 +345,10 @@
           <span class="lang-label">Go</span>
         </div>
       </div>
-    </a>
+    </div>
 
-    <a class="project stripe-blue" href="https://github.com/sandro/specjour">
-      <div class="name"><span>specjour</span></div>
+    <div class="project stripe-blue" data-href="https://github.com/sandro/specjour">
+      <div class="name"><a href="https://github.com/sandro/specjour">specjour</a></div>
       <div class="details">
         <div class="desc">Distributed rspec & cucumber via Bonjour.</div>
         <div class="meta">
@@ -357,10 +357,10 @@
           <span class="stars">★ 211</span>
         </div>
       </div>
-    </a>
+    </div>
 
-    <a class="project stripe-gold" href="https://github.com/sandro/ephemeral_response">
-      <div class="name"><span>ephemeral_response</span></div>
+    <div class="project stripe-gold" data-href="https://github.com/sandro/ephemeral_response">
+      <div class="name"><a href="https://github.com/sandro/ephemeral_response">ephemeral_response</a></div>
       <div class="details">
         <div class="desc">Automatic recording, replaying, and expiry of web responses.</div>
         <div class="meta">
@@ -369,7 +369,7 @@
           <span class="stars">★ 95</span>
         </div>
       </div>
-    </a>
+    </div>
   </div>
 
   <footer>
@@ -386,11 +386,10 @@
   </footer>
 </div>
 <script>
-document.querySelectorAll('.site-link[data-href]').forEach(el => {
+document.querySelectorAll('.project[data-href]').forEach(el => {
   el.addEventListener('click', e => {
-    e.preventDefault();
-    e.stopPropagation();
-    window.open(el.dataset.href, '_blank');
+    if (e.target.closest('a')) return;
+    window.location.href = el.dataset.href;
   });
 });
 </script>
